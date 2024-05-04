@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <ng-container *ngIf="(course$| async)as course">
+                <h1>{{course.description}}</h1>
+                <img [src]="course.iconUrl" [alt]="course.description">
+            </ng-container>
+        </div>
+    </div>
+
+
+    <form [formGroup]="lessonfrom" class="mt-4">
+        <mat-form-field appearance="legacy"  class="w-100">
+            <mat-label>select</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="lesson">
+        </mat-form-field>
+
+    </form> 
+    <div class="row mt-4">
+        <ng-container *ngIf="(lesson$|async) as lesson">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+
+                        <th>    Description </th>
+                        <th> Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor=" let les of lesson ">
+
+                        <td>{{les.description}}</td>
+                        <td>{{les.duration}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </ng-container>
+    </div>
+
+   
+</div>

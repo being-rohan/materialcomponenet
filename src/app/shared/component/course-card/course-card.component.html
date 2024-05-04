@@ -1,0 +1,16 @@
+<mat-card class="mb-4">
+    <mat-card-header>
+        <mat-card-title>
+            {{getcourse.description}}
+        </mat-card-title>
+    </mat-card-header>
+    <img [src]="getcourse.iconUrl" [alt]="getcourse.description">
+
+    <mat-card-content>
+        {{getcourse.longDescription}}
+    </mat-card-content>
+
+        <button mat-raised-button  color="primary" [routerLink]="['/course',getcourse.id]">view course</button>
+        <button mat-raised-button  color="accent" (click)="edit()" class="float-right">Editcourse</button>
+ 
+</mat-card>
